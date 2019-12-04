@@ -185,12 +185,178 @@ ggsave("./batch6_plot.png", plot = p1, width = 10, height = 5, units = "in", dpi
 ggsave("./batch6_plot2.png", plot = p2, width = 10, height = 5, units = "in", dpi = 300)
 
 
-#df %>%
-#  ggplot(aes(x =Day)) + geom_jitter(aes(y = Alive, color = Well), 
-#                                    position = position_jitter(height = 0.25, width = 0 )) +
-#  geom_smooth( aes(y = Alive, color = Well), alpha = 0.5, se = FALSE) + 
-#  facet_wrap(~Plate) +  
-#  labs(title = "Artemia Growth: Batch 1", fill = "Molt: 1 = True 0 = False",
-#       color = "Plate Name", x = "Day of Growth") +
-#  geom_point(aes(y = Molted, fill = 'Molt', color = Well), shape = 4, size = 2, alpha = .65) +
-#  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(1,2,3,4,5,6,7))
+df = read.csv("batch_7.csv")
+
+p1 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6) +  
+  labs(title = "Artemia Growth: Batch 7", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20))
+
+p2 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6, page = 2) +  
+  labs(title = "Artemia Growth: Batch 7", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20))
+
+ggsave("./batch7_plot.png", plot = p1, width = 10, height = 5, units = "in", dpi = 300)
+ggsave("./batch7_plot2.png", plot = p2, width = 10, height = 5, units = "in", dpi = 300)
+
+df = read.csv("batch_8_contaminated.csv")
+
+p1 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6) +  
+  labs(title = "Artemia Growth: Batch 8 - Contaminated", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20))
+
+p2 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6, page = 2) +  
+  labs(title = "Artemia Growth: Batch 8- Contaminated", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20))
+
+ggsave("./batch8_con_plot.png", plot = p1, width = 10, height = 5, units = "in", dpi = 300)
+ggsave("./batch8_con_plot2.png", plot = p2, width = 10, height = 5, units = "in", dpi = 300)
+
+df = read.csv("batch_9.csv")
+
+p1 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6) +  
+  labs(title = "Artemia Growth: Batch 9 Pt 1", fill = "Molt: 1 = True 0 = False",
+       color = "PlateName", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+p2 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6, page = 2) +  
+  labs(title = "Artemia Growth: Batch 9 Pt 2", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+p3 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6, page = 3) +  
+  labs(title = "Artemia Growth: Batch 9 Pt 3", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+p4 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6, page = 4) +  
+  labs(title = "Artemia Growth: Batch 9 Pt 4", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+ggsave("./batch9_pt1.png", plot = p1, width = 10, height = 5, units = "in", dpi = 300)
+ggsave("./batch9_pt2.png", plot = p2, width = 10, height = 5, units = "in", dpi = 300)
+ggsave("./batch9_pt3.png", plot = p1, width = 10, height = 5, units = "in", dpi = 300)
+ggsave("./batch9_pt4.png", plot = p2, width = 10, height = 5, units = "in", dpi = 300)
+
+df = read.csv("batch_10.csv")
+
+p1 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6) +  
+  labs(title = "Artemia Growth: Batch 10 Pt 1", fill = "Molt: 1 = True 0 = False",
+       color = "PlateName", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+p2 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6, page = 2) +  
+  labs(title = "Artemia Growth: Batch 10 Pt 2", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+p3 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6, page = 3) +  
+  labs(title = "Artemia Growth: Batch 10 Pt 3", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+p4 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6, page = 4) +  
+  labs(title = "Artemia Growth: Batch 10 Pt 4", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+ggsave("./batch10_pt1.png", plot = p1, width = 10, height = 5, units = "in", dpi = 300)
+ggsave("./batch10_pt2.png", plot = p2, width = 10, height = 5, units = "in", dpi = 300)
+ggsave("./batch10_pt3.png", plot = p1, width = 10, height = 5, units = "in", dpi = 300)
+ggsave("./batch10_pt4.png", plot = p2, width = 10, height = 5, units = "in", dpi = 300)
+
+df = read.csv("batch_11.csv")
+
+
+p1 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6) +  
+  labs(title = "Artemia Growth: Batch 11 Pt 1", fill = "Molt: 1 = True 0 = False",
+       color = "PlateName", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+p2 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6, page = 2) +  
+  labs(title = "Artemia Growth: Batch 11 Pt 2", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+p3 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6, page = 3) +  
+  labs(title = "Artemia Growth: Batch 11 Pt 3", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+p4 = df %>%
+  ggplot(aes(x =Day)) + geom_point(aes(y = Alive, color = Plate)) +
+  geom_line( aes(y = Alive, color = Plate)) + 
+  facet_grid_paginate(Plate~Well, nrow = 2, ncol = 6, page = 4) +  
+  labs(title = "Artemia Growth: Batch 11 Pt 4", fill = "Molt: 1 = True 0 = False",
+       color = "Plate Name", x = "Day of Growth") +
+  geom_point(aes(y = Molted, fill = 'Molt'), shape = 4, size = 2, alpha = .65) +
+  scale_y_continuous(breaks = c(0,1)) + scale_x_continuous(breaks = c(4,8,12,16,20,24,28))
+
+ggsave("./batch11_pt1.png", plot = p1, width = 10, height = 5, units = "in", dpi = 300)
+ggsave("./batch11_pt2.png", plot = p2, width = 10, height = 5, units = "in", dpi = 300)
+ggsave("./batch11_pt3.png", plot = p1, width = 10, height = 5, units = "in", dpi = 300)
+ggsave("./batch11_pt4.png", plot = p2, width = 10, height = 5, units = "in", dpi = 300)
