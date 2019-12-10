@@ -2,6 +2,7 @@ import csv
 
 class Artemia_Mortality(object):
     def __init__(self):
+        """Initializing all the *messy* lists and dictionaries used in this object"""
         self.data = []
         self.plates = []
         self.plate_dict = {}
@@ -72,6 +73,7 @@ class Artemia_Mortality(object):
         self.read_data(file_name)
         self.plate_names()
         plate =len(self.plates)
+        print(plate)
         #plate = 1
         self.plate_dictionary()
         self.ind_plate_dict(plate)
@@ -83,6 +85,7 @@ class Artemia_Mortality(object):
 
 
     def death_count(self,plate):
+        """Counts and creates dictionaries counting the deaths of Artemia over time"""
         temp_dict = {}
         if plate == 1:
             for i in self.plateday_1:
@@ -374,6 +377,7 @@ class Artemia_Mortality(object):
             self.platedeath_8[self.plates[7]] = temp_dict
 
     def ind_plate_dict(self,plate):
+        """Making individual dictionaries for each plate"""
         if plate == 1:
             plt = self.plates[0]
             self.plate_dict_1[plt] = self.plate_dict[plt]
@@ -494,6 +498,7 @@ class Artemia_Mortality(object):
             print("The code needs to be updated to allow for more plates to be examined")
 
     def plate_dictionary(self):
+        """Making a dictionary sorted by plate"""
         temp_plate = []
         for i in self.plates:
             for q in self.data:
@@ -510,6 +515,7 @@ class Artemia_Mortality(object):
         #print(self.plate_dict)
 
     def plate_day(self, day, plate):
+        """Making a nested dictionary sorted by plate, subseted by day"""
         if plate == 1:
             for i in range(len(day)):
                 temp_lyst = []
@@ -533,7 +539,7 @@ class Artemia_Mortality(object):
             for i in range(len(day)):
                 temp_lyst = []
                 for q in self.plate_dict_2:
-                    for z in self.plate_dict_1[q]:
+                    for z in self.plate_dict_2[q]:
                         if int(z[4]) == day[i]:
                             temp_lyst.append(z)
                         else:
@@ -844,6 +850,7 @@ class Artemia_Mortality(object):
             #print(self.plateday_8)
 
     def trial_days(self):
+        """Creates a list of days the trial extended over, and records the final day of trials (no longer necessary)"""
         for i in self.plate_dict:
             for q in self.plate_dict[i]:
                 if int(q[4]) not in self.day_lyst:
@@ -852,6 +859,7 @@ class Artemia_Mortality(object):
         self.day_max = max(self.day_lyst)
 
     def writer(self,plate,file_name):
+        """Writes the death dictionaries to individual csv files"""
         if plate == 1:
             f = file_name[0:-4]
             fname = ("{}{}".format(f,"_plate1.csv"))
@@ -1340,6 +1348,7 @@ def file_check(prompt = "Please enter a csv file formatted for data in Dr. Dunn'
         return file_check("That is not a valid file format. Please retry: ")
 
 def main():
+    """The main function that starts and initializes the run"""
     am = Artemia_Mortality()
     f = file_check()
     am.run(f)
