@@ -107,6 +107,7 @@ Date,Month,Year,Plate,Day,Well,Alive,Molted
 29,September,2019,26-09-19 C(L),3,C2,1,0
 29,September,2019,26-09-19 C(L),3,C3,1,0
 29,September,2019,26-09-19 C(L),3,C4,1,0
+30,September,2019,26-09-19 A(H),4,A1,1,0
 30,September,2019,26-09-19 A(H),4,A2,1,0
 30,September,2019,26-09-19 A(H),4,A3,0,0
 30,September,2019,26-09-19 A(H),4,A4,1,0
@@ -718,6 +719,3 @@ Date,Month,Year,Plate,Day,Well,Alive,Molted
 16,October,2019,26-09-19 C(L),20,C2,1,0
 16,October,2019,26-09-19 C(L),20,C3,0,0
 16,October,2019,26-09-19 C(L),20,C4,0,0
-16,October,2019,26-09-19 D(L),20,A1,0,0
-16,October,2019,26-09-19 D(L),20,A2,0,0
-16,October,2019,26-09-19 D(L),20,A3,0,0

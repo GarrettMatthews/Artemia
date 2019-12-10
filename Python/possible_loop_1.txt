@@ -1,0 +1,26 @@
+                if i in q:
+                    if q[5] not in temp_dict:
+                        z = 0
+                        if q[5] == 1:
+                            temp_dict[q[5]] = "Alive"
+                        elif q[5] == 0:
+                            temp_dict[q[5]] = "Dead"
+                            z +=1
+                    else:
+                        z = 0
+                        if q[5] == 1:
+                            temp_dict[q[5]] = "Alive"
+                        elif q[5] == 0:
+                            if temp_dict[q[5]] == "Alive":
+                                z += 1
+                                temp_dict[q[5]] = "Dead"
+                            elif temp_dict[q[5]] == "Dead":
+                                temp_dict[q[5]] = "Dead"
+                    day = ("{}{}".format("Day ", x))
+                    dead = ("{}{}".format("Died: ", z))
+                    temp_count[day] = dead
+                else:
+                    self.death_dict[i] = temp_count
+                    temp_dict = {}
+                    x = 1
+                    z = 0
